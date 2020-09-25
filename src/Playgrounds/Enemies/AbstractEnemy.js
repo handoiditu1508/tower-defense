@@ -5,7 +5,6 @@ var AbstractEnemy = cc.Sprite.extend({
     _minimumDistance: 10,
     _health: 2,
     _isAlive: true,
-    _dieEffect: null,
 
     ctor: function(image, wayPoints){
         cc.Sprite.prototype.ctor.call(this, image);
@@ -49,10 +48,6 @@ var AbstractEnemy = cc.Sprite.extend({
 
     die: function(){
         this._isAlive = false;
-        if(this._dieEffect){
-            this._dieEffect.setPosition(this.getPosition());
-            this.getParent().getParent().addChild(this._dieEffect);
-        }
         this.removeFromParent();
     },
 
@@ -61,9 +56,5 @@ var AbstractEnemy = cc.Sprite.extend({
     },
     setIsAlive: function(isAlive){
         this._isAlive = isAlive;
-    },
-
-    setDieEffect: function(dieEffect){
-        this._dieEffect = dieEffect;
     },
 });
