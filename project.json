@@ -23,7 +23,7 @@
         "src/Playgrounds/Map1.js",
         "src/Playgrounds/Map2.js",
         "src/Playgrounds/Enemies/AbstractEnemy.js",
-        "src/Playgrounds/Enemies/Enemy.js",
+        "src/Playgrounds/Enemies/Snail.js",
         "src/Playgrounds/Enemies/AbstractVividEnemy.js",
         "src/Playgrounds/Enemies/TheBoy.js",
         "src/Playgrounds/Enemies/Explosions/FireExplosion.js",

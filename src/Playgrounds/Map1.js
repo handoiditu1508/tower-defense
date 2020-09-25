@@ -19,18 +19,6 @@ var Map1 = AbstractMap.extend({
             {x: 672, y: 288},
         ];
         var waves = [
-            /*{
-                numberOfEnemies: 5,
-            },
-            {
-                numberOfEnemies: 10,
-            },
-            {
-                numberOfEnemies: 15,
-            },
-            {
-                numberOfEnemies: 20,
-            },*/
             [
                 {
                     id: 1,

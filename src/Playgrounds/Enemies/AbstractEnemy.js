@@ -5,6 +5,7 @@ var AbstractEnemy = cc.Sprite.extend({
     _minimumDistance: 10,
     _health: 2,
     _isAlive: true,
+    _dieEffect: null,
 
     ctor: function(image, wayPoints){
         cc.Sprite.prototype.ctor.call(this, image);
@@ -15,18 +16,21 @@ var AbstractEnemy = cc.Sprite.extend({
     },
 
     update: function(dt){
-        var distance = cc.pDistance(this.getPosition(), this.getDestination());
-        if(distance <= this._minimumDistance){
-            if(this._destinationIndex + 1 >= this._wayPoints.length)
-                this.removeFromParent();
-            else this._destinationIndex++;
+        //move along waypoints
+        if(this._isAlive) {
+            var distance = cc.pDistance(this.getPosition(), this.getDestination());
+            if (distance <= this._minimumDistance) {
+                if (this._destinationIndex + 1 >= this._wayPoints.length)
+                    this.removeFromParent();
+                else this._destinationIndex++;
+            }
+
+            var direction = cc.pSub(this.getDestination(), this.getPosition());
+            direction = cc.pNormalize(direction);
+
+            this.setScaleX(direction.x / Math.abs(direction.x));
+            this.setPosition(this.getPositionX() + direction.x * this._speed * dt, this.getPositionY() + direction.y * this._speed * dt);
         }
-
-        var direction = cc.pSub(this.getDestination(), this.getPosition());
-        direction = cc.pNormalize(direction);
-
-        this.setScaleX(direction.x/Math.abs(direction.x));
-        this.setPosition(this.getPositionX() + direction.x * this._speed * dt, this.getPositionY() + direction.y * this._speed * dt);
     },
 
     getDestination: function(){
@@ -45,27 +49,21 @@ var AbstractEnemy = cc.Sprite.extend({
 
     die: function(){
         this._isAlive = false;
-        var explosion = new FireExplosion();
-        explosion.setPosition(this.getPosition());
-        this.getParent().getParent().addChild(explosion);
+        if(this._dieEffect){
+            this._dieEffect.setPosition(this.getPosition());
+            this.getParent().getParent().addChild(this._dieEffect);
+        }
         this.removeFromParent();
-    },
-
-    setSpeed: function(speed){
-        this._speed = speed;
-    },
-    getSpeed: function(){
-        return this._speed;
-    },
-
-    setHealth: function(health){
-        this._health = health;
-    },
-    getHealth: function(){
-        return this._health;
     },
 
     getIsAlive: function(){
         return this._isAlive;
-    }
+    },
+    setIsAlive: function(isAlive){
+        this._isAlive = isAlive;
+    },
+
+    setDieEffect: function(dieEffect){
+        this._dieEffect = dieEffect;
+    },
 });

@@ -8,9 +8,9 @@ var FireExplosion = cc.Sprite.extend({
 
         cc.spriteFrameCache.addSpriteFrames(res.fire_explosion_plist, res.fire_explosion_png);
 
-        cc.Sprite.prototype.ctor.call(this, cc.spriteFrameCache.getSpriteFrame(this.getKey(1)));
+        cc.Sprite.prototype.ctor.call(this);
 
-        var actions = [];
+        var actions = [new cc.callFunc(this.setSpriteFrame.bind(this, cc.spriteFrameCache.getSpriteFrame(this.getKey(1))))];
         for(var i = 2; i<=this._numberOfSprites; i++){
             var action1 = new cc.delayTime(this._timesBetweenSprites);
             var action2 = new cc.callFunc(this.setSpriteFrame.bind(this, cc.spriteFrameCache.getSpriteFrame(this.getKey(i))));
