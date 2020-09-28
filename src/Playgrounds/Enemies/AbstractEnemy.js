@@ -5,6 +5,7 @@ var AbstractEnemy = cc.Sprite.extend({
     _minimumDistance: 10,
     _health: 2,
     _isAlive: true,
+    _value: 1,
 
     ctor: function(image, wayPoints){
         cc.Sprite.prototype.ctor.call(this, image);
@@ -19,8 +20,12 @@ var AbstractEnemy = cc.Sprite.extend({
         if(this._isAlive) {
             var distance = cc.pDistance(this.getPosition(), this.getDestination());
             if (distance <= this._minimumDistance) {
-                if (this._destinationIndex + 1 >= this._wayPoints.length)
+                if (this._destinationIndex + 1 >= this._wayPoints.length){
+                    Global.lives --;
+                    if(Global.lives < 0)
+                        Global.lives = 0;
                     this.removeFromParent();
+                }
                 else this._destinationIndex++;
             }
 
@@ -41,7 +46,7 @@ var AbstractEnemy = cc.Sprite.extend({
             this._health -= damage;
             if(this._health <= 0){
                 this.die();
-                Global.score++;
+                Global.score += this._value;
             }
         }
     },

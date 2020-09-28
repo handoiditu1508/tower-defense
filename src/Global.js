@@ -1,5 +1,8 @@
 var Global = {
-    score: 0
+    score: 0,
+    lives: 0,
+    coins: 0,
+    kills: 0
 };
 
 var Factory = {
