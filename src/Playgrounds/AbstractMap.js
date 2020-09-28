@@ -9,9 +9,7 @@ var AbstractMapLayer = cc.Layer.extend({
     _waveCountdown: 0,
     _defaultLives: 10,
 
-    _scoreLabel: null,
-
-    _backText: null,
+    _playerInfoLayer: null,
 
     _turretShop: null,
     _turretDragger: null,
@@ -40,13 +38,15 @@ var AbstractMapLayer = cc.Layer.extend({
         bg.setPosition(this.width/2, this.height/2);
         this.addChild(bg);
 
-        this._scoreLabel = new cc.LabelTTF("score: 0", "Arial", 18);
-        this._scoreLabel.setPosition(this.width/2, this.height-50);
-        this.addChild(this._scoreLabel);
-
-        this._backText = new cc.LabelTTF("back to Map Chooser", "Arial", 40);
-        this._backText.setPosition(200, 600);
-        this.addChild(this._backText);
+        this._playerInfoLayer = ccs.load(res.PlayerInformation_json).node;
+        this.addChild(this._playerInfoLayer);
+        this._playerInfoLayer.getChildByName("PauseButton").addTouchEventListener(function (sender, type) {
+            switch (type){
+                case ccui.Widget.TOUCH_ENDED:
+                    this._createLevelCompleteBoard();
+                    break;
+            }
+        }, this);
 
         this._enemiesParentNode = new cc.Node();
         this._enemiesParentNode.setPosition(0, 0);
@@ -187,6 +187,8 @@ var AbstractMapLayer = cc.Layer.extend({
         else this._waveCountdown -= dt;
 
         this._updateScoreText();
+        this._updateCoinText();
+        this._updateLifeBar();
 
         if(Global.lives < 1){
             this._createLevelCompleteBoard(true);
@@ -201,7 +203,18 @@ var AbstractMapLayer = cc.Layer.extend({
     },
 
     _updateScoreText: function(){
-        this._scoreLabel.setString("score: " + Global.score);
+        this._playerInfoLayer.getChildByName("Score").setString("score: " + Global.score);
+    },
+
+    _updateCoinText: function(){
+        this._playerInfoLayer.getChildByName("CoinValue").setString(Global.coins);
+    },
+
+    _updateLifeBar: function(){
+        var lifeCal = Global.lives;
+        if(Global.lives > this._defaultLives)
+            lifeCal = this._defaultLives;
+        this._playerInfoLayer.getChildByName("LifeBar").setScaleX(lifeCal/this._defaultLives);
     },
 
     _createLevelCompleteBoard: function(isGameOver){
@@ -214,90 +227,46 @@ var AbstractMapLayer = cc.Layer.extend({
         if(isGameOver)
             Global.coins += Global.score;
 
-        var boardContainer = new cc.Node();
-        boardContainer.setPosition(0, 0);
+        var boardContainer = ccs.load(res.LevelCompleteBoard_json).node;
         boardContainer.setName("levelCompleteBoard");
         this.addChild(boardContainer);
 
         //dark background
-        var gradient = new cc.LayerGradient(cc.color(0, 0, 0, 255), cc.color(0, 0, 0, 255));
+        var gradient = new cc.LayerGradient(cc.color(0, 0, 0, 255));
         gradient.setOpacity(200);
-        boardContainer.addChild(gradient);
-
-        //board
-        var board = new cc.Sprite(res.level_complete_board_png);
-        board.setPosition(cc.winSize.width/2, cc.winSize.height/2);
-        boardContainer.addChild(board);
+        boardContainer.addChild(gradient, -1);
 
         //stars
         if(isGameOver){
-            var starsPosition = [
-                {x: 400.41, y: 312},
-                {x: 560.41, y: 312},
-                {x: 480, y: 334.77},
-            ];
-            var starsScale = [1, 1, 1.15];
             var starsCal = Global.lives/this._defaultLives;
 
+            //3 stars
             if(starsCal >= 1){
-                for(var i = 0; i < 3; i++){
-                    var star = new cc.Sprite(res.star_png);
-                    star.setPosition(starsPosition[i]);
-                    star.setScale(starsScale[i]);
-                    boardContainer.addChild(star);
-                }
             }
+            //2 stars
             else if(starsCal > 0.5){
-                for(var i = 0; i < 2; i++){
-                    var star = new cc.Sprite(res.star_png);
-                    star.setPosition(starsPosition[i]);
-                    star.setScale(starsScale[i]);
-                    boardContainer.addChild(star);
-                }
+                boardContainer.getChildByName("Star3").setVisible(false);
             }
+            //1 star
             else{
-                for(var i = 0; i < 1; i++){
-                    var star = new cc.Sprite(res.star_png);
-                    star.setPosition(starsPosition[i]);
-                    star.setScale(starsScale[i]);
-                    boardContainer.addChild(star);
-                }
+                boardContainer.getChildByName("Star3").setVisible(false);
+                boardContainer.getChildByName("Star2").setVisible(false);
             }
+        }
+        else{
+            boardContainer.getChildByName("Star3").setVisible(false);
+            boardContainer.getChildByName("Star2").setVisible(false);
+            boardContainer.getChildByName("Star1").setVisible(false);
         }
 
         //life
-        var lifeLabel = new cc.LabelTTF("Life", "Arial", 36);
-        lifeLabel.setPosition(395.28, 232);
-        boardContainer.addChild(lifeLabel);
-
-        var lifeIcon = new cc.Sprite(res.life_png);
-        lifeIcon.setPosition(465.51, 236.15);
-        lifeIcon.setScale(0.55);
-        boardContainer.addChild(lifeIcon);
-
-        var lifeValue = new cc.LabelTTF(String(Global.lives), "Arial", 24);
-        lifeValue.setPosition(535.42, 232);
-        boardContainer.addChild(lifeValue);
+        boardContainer.getChildByName("LifeValue").setString(String(Global.lives));
 
         //coin
-        var coinIcon = new cc.Sprite(res.coin_png);
-        coinIcon.setPosition(465.51, 178.95);
-        coinIcon.setScale(0.55);
-        boardContainer.addChild(coinIcon);
-
-        var coinLabel = new cc.LabelTTF("Coin", "Arial", 36);
-        coinLabel.setPosition(395.28, 176);
-        boardContainer.addChild(coinLabel);
-
-        var lifeValue = new cc.LabelTTF(String(Global.coins), "Arial", 24);
-        lifeValue.setPosition(535.42, 176);
-        boardContainer.addChild(lifeValue);
+        boardContainer.getChildByName("CoinValue").setString(String(Global.coins));
 
         //home button
-        var homeButton = new ccui.Button(res.home_button_normal_png, res.home_button_press_png, res.home_button_disable_png);
-        homeButton.setPosition(387, 96);
-        homeButton.setScale(0.65);
-        homeButton.addTouchEventListener(function (sender, type) {
+        boardContainer.getChildByName("HomeButton").addTouchEventListener(function (sender, type) {
             switch (type){
                 case ccui.Widget.TOUCH_ENDED:
                     cc.director.runScene(new HelloWorldScene());
@@ -305,13 +274,9 @@ var AbstractMapLayer = cc.Layer.extend({
                     break;
             }
         }, this);
-        boardContainer.addChild(homeButton);
 
         //menu button
-        var menuButton = new ccui.Button(res.menu_button_normal_png, res.menu_button_press_png, res.menu_button_disable_png);
-        menuButton.setPosition(449, 96);
-        menuButton.setScale(0.65);
-        menuButton.addTouchEventListener(function (sender, type) {
+        boardContainer.getChildByName("MenuButton").addTouchEventListener(function (sender, type) {
             switch (type){
                 case ccui.Widget.TOUCH_ENDED:
                     cc.director.runScene(new MapChooser());
@@ -319,13 +284,9 @@ var AbstractMapLayer = cc.Layer.extend({
                     break;
             }
         }.bind(this), this);
-        boardContainer.addChild(menuButton);
 
         //retry button
-        var retryButton = new ccui.Button(res.retry_button_normal_png, res.retry_button_press_png, res.retry_button_disable_png);
-        retryButton.setPosition(511, 96);
-        retryButton.setScale(0.65);
-        retryButton.addTouchEventListener(function (sender, type) {
+        boardContainer.getChildByName("RetryButton").addTouchEventListener(function (sender, type) {
             switch (type){
                 case ccui.Widget.TOUCH_ENDED:
                     this._reinitiateProperties();
@@ -335,26 +296,24 @@ var AbstractMapLayer = cc.Layer.extend({
                     break;
             }
         }.bind(this), this);
-        boardContainer.addChild(retryButton);
 
-        //play button
-        var playButton = new ccui.Button(res.play_button_normal_png, res.play_button_press_png, res.play_button_disable_png);
-        playButton.setPosition(573, 96);
-        playButton.setScale(0.65);
+        //resume button
         if(isGameOver){
-            playButton.setBright(false);
+            boardContainer.getChildByName("ResumeButton").setBright(false);
+            boardContainer.getChildByName("ResumeButton2").setBright(false);
         }
         else{
-            playButton.addTouchEventListener(function (sender, type) {
+            var func = function (sender, type) {
                 switch (type){
                     case ccui.Widget.TOUCH_ENDED:
                         boardContainer.removeFromParent();
                         cc.director.resume();
                         break;
                 }
-            }.bind(this), this);
+            };
+            boardContainer.getChildByName("ResumeButton").addTouchEventListener(func.bind(this), this);
+            boardContainer.getChildByName("ResumeButton2").addTouchEventListener(func.bind(this), this);
         }
-        boardContainer.addChild(playButton);
     },
 
     _onTouchBegan: function(touch, event){
@@ -364,12 +323,6 @@ var AbstractMapLayer = cc.Layer.extend({
             this._turretDragger.setPosition(touch.getLocation());
             this._turretDragger.setOpacity(127);
             this.addChild(this._turretDragger);
-        }
-
-        //back to map chooser
-        if(cc.rectContainsPoint(this._backText.getBoundingBox(), touch.getLocation())){
-            //cc.director.popScene();
-            cc.director.runScene(new MapChooser());
         }
     },
 

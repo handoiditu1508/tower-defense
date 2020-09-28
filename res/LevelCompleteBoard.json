@@ -1,0 +1,888 @@
+{
+  "ID": "219f648a-1f8c-491a-8d01-3adc4030c7fc",
+  "Version": "3.10.0.0",
+  "Name": "LevelCompleteBoard",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 53,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/level_complete_board.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.3812,
+              "Y": 0.825
+            },
+            "LeftMargin": 297.0,
+            "RightMargin": 297.0,
+            "TopMargin": 56.0,
+            "BottomMargin": 56.0,
+            "Tag": 82,
+            "ActionTag": -49440203,
+            "Size": {
+              "X": 366.0,
+              "Y": 528.0
+            },
+            "Name": "Board",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 36,
+            "LabelText": "Coin",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 395.2762,
+              "Y": 181.5498
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4117,
+              "Y": 0.2837
+            },
+            "PreSize": {
+              "X": 0.075,
+              "Y": 0.0641
+            },
+            "LeftMargin": 359.2762,
+            "RightMargin": 528.7238,
+            "TopMargin": 437.9502,
+            "BottomMargin": 161.0498,
+            "Tag": 69,
+            "ActionTag": 3431889,
+            "Size": {
+              "X": 72.0,
+              "Y": 41.0
+            },
+            "Name": "CoinLabel",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 36,
+            "LabelText": "Life",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 395.2758,
+              "Y": 233.9083
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4117,
+              "Y": 0.3655
+            },
+            "PreSize": {
+              "X": 0.0594,
+              "Y": 0.0641
+            },
+            "LeftMargin": 366.7758,
+            "RightMargin": 536.2242,
+            "TopMargin": 385.5917,
+            "BottomMargin": 213.4083,
+            "Tag": 70,
+            "ActionTag": 930950385,
+            "Size": {
+              "X": 57.0,
+              "Y": 41.0
+            },
+            "Name": "LifeLabel",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 24,
+            "LabelText": "2000",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 537.2265,
+              "Y": 179.2229
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5596,
+              "Y": 0.28
+            },
+            "PreSize": {
+              "X": 0.0542,
+              "Y": 0.0422
+            },
+            "LeftMargin": 511.2265,
+            "RightMargin": 396.7735,
+            "TopMargin": 447.2771,
+            "BottomMargin": 165.7229,
+            "Tag": 71,
+            "ActionTag": -1976894187,
+            "Size": {
+              "X": 52.0,
+              "Y": 27.0
+            },
+            "Name": "CoinValue",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 24,
+            "LabelText": "1",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 535.4229,
+              "Y": 236.3394
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5577,
+              "Y": 0.3693
+            },
+            "PreSize": {
+              "X": 0.0135,
+              "Y": 0.0422
+            },
+            "LeftMargin": 528.9229,
+            "RightMargin": 418.0771,
+            "TopMargin": 390.1606,
+            "BottomMargin": 222.8394,
+            "Tag": 72,
+            "ActionTag": -723885735,
+            "Size": {
+              "X": 13.0,
+              "Y": 27.0
+            },
+            "Name": "LifeValue",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/coin.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 464.9513,
+              "Y": 178.9482
+            },
+            "Scale": {
+              "ScaleX": 0.55,
+              "ScaleY": 0.55
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4843,
+              "Y": 0.2796
+            },
+            "PreSize": {
+              "X": 0.0677,
+              "Y": 0.1109
+            },
+            "LeftMargin": 432.4513,
+            "RightMargin": 462.5487,
+            "TopMargin": 425.5518,
+            "BottomMargin": 143.4482,
+            "Tag": 77,
+            "ActionTag": 1672085793,
+            "Size": {
+              "X": 65.0,
+              "Y": 71.0
+            },
+            "Name": "CoinIcon",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/life.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 465.5111,
+              "Y": 236.1499
+            },
+            "Scale": {
+              "ScaleX": 0.55,
+              "ScaleY": 0.55
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4849,
+              "Y": 0.369
+            },
+            "PreSize": {
+              "X": 0.0656,
+              "Y": 0.0984
+            },
+            "LeftMargin": 434.0111,
+            "RightMargin": 462.9889,
+            "TopMargin": 372.3501,
+            "BottomMargin": 204.6499,
+            "Tag": 78,
+            "ActionTag": 464368250,
+            "Size": {
+              "X": 63.0,
+              "Y": 63.0
+            },
+            "Name": "LifeIcon",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/star.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 479.9997,
+              "Y": 334.7689
+            },
+            "Scale": {
+              "ScaleX": 1.15,
+              "ScaleY": 1.15
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5231
+            },
+            "PreSize": {
+              "X": 0.074,
+              "Y": 0.1031
+            },
+            "LeftMargin": 444.4997,
+            "RightMargin": 444.5003,
+            "TopMargin": 272.2311,
+            "BottomMargin": 301.7689,
+            "Tag": 79,
+            "ActionTag": -1890685822,
+            "Size": {
+              "X": 71.0,
+              "Y": 66.0
+            },
+            "Name": "Star3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/star.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 560.4097,
+              "Y": 311.8814
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5838,
+              "Y": 0.4873
+            },
+            "PreSize": {
+              "X": 0.074,
+              "Y": 0.1031
+            },
+            "LeftMargin": 524.9097,
+            "RightMargin": 364.0903,
+            "TopMargin": 295.1186,
+            "BottomMargin": 278.8814,
+            "Tag": 80,
+            "ActionTag": 1149886370,
+            "Size": {
+              "X": 71.0,
+              "Y": 66.0
+            },
+            "Name": "Star2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/star.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.4113,
+              "Y": 312.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4171,
+              "Y": 0.4875
+            },
+            "PreSize": {
+              "X": 0.074,
+              "Y": 0.1031
+            },
+            "LeftMargin": 364.9113,
+            "RightMargin": 524.0887,
+            "TopMargin": 295.0,
+            "BottomMargin": 279.0,
+            "Tag": 81,
+            "ActionTag": -913267544,
+            "Size": {
+              "X": 71.0,
+              "Y": 66.0
+            },
+            "Name": "Star1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "ccs/home_button_disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "ccs/home_button_press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "ccs/home_button_normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 66,
+            "Scale9Height": 76,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 387.0,
+              "Y": 96.0
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4031,
+              "Y": 0.15
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1531
+            },
+            "LeftMargin": 339.0,
+            "RightMargin": 525.0,
+            "TopMargin": 495.0,
+            "BottomMargin": 47.0,
+            "Tag": 83,
+            "ActionTag": -150844127,
+            "Size": {
+              "X": 96.0,
+              "Y": 98.0
+            },
+            "Name": "HomeButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "ccs/menu_button_disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "ccs/menu_button_press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "ccs/menu_button_normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 66,
+            "Scale9Height": 76,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 449.0,
+              "Y": 96.0
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4677,
+              "Y": 0.15
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1531
+            },
+            "LeftMargin": 401.0,
+            "RightMargin": 463.0,
+            "TopMargin": 495.0,
+            "BottomMargin": 47.0,
+            "Tag": 84,
+            "ActionTag": 1883413124,
+            "Size": {
+              "X": 96.0,
+              "Y": 98.0
+            },
+            "Name": "MenuButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "ccs/retry_button_disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "ccs/retry_button_press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "ccs/retry_button_normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 66,
+            "Scale9Height": 76,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 511.0,
+              "Y": 96.0
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5323,
+              "Y": 0.15
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1531
+            },
+            "LeftMargin": 463.0,
+            "RightMargin": 401.0,
+            "TopMargin": 495.0,
+            "BottomMargin": 47.0,
+            "Tag": 85,
+            "ActionTag": -1124360963,
+            "Size": {
+              "X": 96.0,
+              "Y": 98.0
+            },
+            "Name": "RetryButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "ccs/play_button_disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "ccs/play_button_press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "ccs/play_button_normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 66,
+            "Scale9Height": 76,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 573.0,
+              "Y": 96.0
+            },
+            "Scale": {
+              "ScaleX": 0.65,
+              "ScaleY": 0.65
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5969,
+              "Y": 0.15
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1531
+            },
+            "LeftMargin": 525.0,
+            "RightMargin": 339.0,
+            "TopMargin": 495.0,
+            "BottomMargin": 47.0,
+            "Tag": 86,
+            "ActionTag": 762068955,
+            "Size": {
+              "X": 96.0,
+              "Y": 98.0
+            },
+            "Name": "ResumeButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "ccs/play_button_disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "ccs/play_button_press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "ccs/play_button_normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 66,
+            "Scale9Height": 76,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 33.8233,
+              "Y": 604.9561
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0352,
+              "Y": 0.9452
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1531
+            },
+            "LeftMargin": -14.1767,
+            "RightMargin": 878.1767,
+            "TopMargin": -13.9561,
+            "BottomMargin": 555.9561,
+            "Tag": 70,
+            "ActionTag": 1570478816,
+            "Size": {
+              "X": 96.0,
+              "Y": 98.0
+            },
+            "Name": "ResumeButton2",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "LevelCompleteBoard",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "ccs/coin.png",
+        "ccs/home_button_disable.png",
+        "ccs/home_button_normal.png",
+        "ccs/home_button_press.png",
+        "ccs/level_complete_board.png",
+        "ccs/life.png",
+        "ccs/menu_button_disable.png",
+        "ccs/menu_button_normal.png",
+        "ccs/menu_button_press.png",
+        "ccs/play_button_disable.png",
+        "ccs/play_button_normal.png",
+        "ccs/play_button_press.png",
+        "ccs/retry_button_disable.png",
+        "ccs/retry_button_normal.png",
+        "ccs/retry_button_press.png",
+        "ccs/star.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

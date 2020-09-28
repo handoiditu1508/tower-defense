@@ -1,0 +1,343 @@
+{
+  "ID": "305ce235-4d16-46be-97cc-05378b76df50",
+  "Version": "3.10.0.0",
+  "Name": "PlayerInformation",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 213,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/coin_holder.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 616.7703,
+              "Y": 597.7665
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6425,
+              "Y": 0.934
+            },
+            "PreSize": {
+              "X": 0.2917,
+              "Y": 0.1594
+            },
+            "LeftMargin": 476.7703,
+            "RightMargin": 203.2297,
+            "TopMargin": -8.7665,
+            "BottomMargin": 546.7665,
+            "Tag": 214,
+            "ActionTag": -379063491,
+            "Size": {
+              "X": 280.0,
+              "Y": 102.0
+            },
+            "Name": "CoinHolder",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/life_holder.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 824.0189,
+              "Y": 597.3929
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8584,
+              "Y": 0.9334
+            },
+            "PreSize": {
+              "X": 0.526,
+              "Y": 0.1875
+            },
+            "LeftMargin": 571.5189,
+            "RightMargin": -116.5189,
+            "TopMargin": -17.3929,
+            "BottomMargin": 537.3929,
+            "Tag": 216,
+            "ActionTag": 26126377,
+            "Size": {
+              "X": 505.0,
+              "Y": 120.0
+            },
+            "Name": "LifeHolder",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ccs/life_bar.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 760.1674,
+              "Y": 598.0204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7918,
+              "Y": 0.9344
+            },
+            "PreSize": {
+              "X": 0.1698,
+              "Y": 0.0406
+            },
+            "LeftMargin": 760.1674,
+            "RightMargin": 36.8326,
+            "TopMargin": 28.9796,
+            "BottomMargin": 585.0204,
+            "Tag": 215,
+            "ActionTag": 663044158,
+            "Size": {
+              "X": 163.0,
+              "Y": 26.0
+            },
+            "Name": "LifeBar",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 20,
+            "LabelText": "Score: 0",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.3899,
+              "ScaleY": 0.7623
+            },
+            "Position": {
+              "X": 342.716,
+              "Y": 602.5247
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.357,
+              "Y": 0.9414
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.0359
+            },
+            "LeftMargin": 313.4735,
+            "RightMargin": 571.5265,
+            "TopMargin": 32.0077,
+            "BottomMargin": 584.9923,
+            "Tag": 308,
+            "ActionTag": 477159964,
+            "Size": {
+              "X": 75.0,
+              "Y": 23.0
+            },
+            "Name": "Score",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "ccs/pause_button_disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "ccs/pause_button_press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "ccs/pause_button_normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 66,
+            "Scale9Height": 76,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 33.8233,
+              "Y": 604.9561
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0352,
+              "Y": 0.9452
+            },
+            "PreSize": {
+              "X": 0.1,
+              "Y": 0.1531
+            },
+            "LeftMargin": -14.1767,
+            "RightMargin": 878.1767,
+            "TopMargin": -13.9561,
+            "BottomMargin": 555.9561,
+            "Tag": 309,
+            "ActionTag": -608242743,
+            "Size": {
+              "X": 96.0,
+              "Y": 98.0
+            },
+            "Name": "PauseButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "LabelText": "0",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 601.0344,
+              "Y": 598.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6261,
+              "Y": 0.9344
+            },
+            "PreSize": {
+              "X": 0.0115,
+              "Y": 0.0359
+            },
+            "LeftMargin": 601.0344,
+            "RightMargin": 347.9656,
+            "TopMargin": 30.5,
+            "BottomMargin": 586.5,
+            "Tag": 32,
+            "ActionTag": -1637851882,
+            "Size": {
+              "X": 11.0,
+              "Y": 23.0
+            },
+            "Name": "CoinValue",
+            "ctype": "TextObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "PlayerInformation",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "ccs/coin_holder.png",
+        "ccs/life_bar.png",
+        "ccs/life_holder.png",
+        "ccs/pause_button_disable.png",
+        "ccs/pause_button_normal.png",
+        "ccs/pause_button_press.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

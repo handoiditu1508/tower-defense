@@ -1,0 +1,111 @@
+{
+  "ID": "fcc4d729-e2c0-418c-ae35-9281356dde4a",
+  "Version": "3.10.0.0",
+  "Name": "Map1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 8,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "src/test/map1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 50.0,
+              "ScaleY": 50.0
+            },
+            "Position": {
+              "X": 48000.0,
+              "Y": 32000.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 50.0,
+              "Y": 50.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 14,
+            "ActionTag": 1739403175,
+            "Size": {
+              "X": 960.0,
+              "Y": 640.0
+            },
+            "Name": "BackGround",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "src/Playgrounds/LevelCompleteBoard.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 132,
+            "ActionTag": 1693621174,
+            "Size": {
+              "X": 960.0,
+              "Y": 640.0
+            },
+            "Name": "LevelCompleteBoard",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Map",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "../Playgrounds/LevelCompleteBoard.json",
+        "map1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
