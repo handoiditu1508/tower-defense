@@ -126,9 +126,8 @@ var AbstractMapLayer = cc.Layer.extend({
     },
 
     _reinitiateProperties: function(){
-        this._turretPlaced = [];
-        for(var i in this._turretPoints){
-            this._turretPlaced.push(false);
+        for(var i in this._turretPlaced){
+            this._turretPlaced[i] = false;
         }
 
         for(var i = this.getChildren().length - 1; i>-1; i--){

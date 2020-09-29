@@ -1,5 +1,5 @@
 var Turret = cc.Sprite.extend({
-    _rotationSpeed: 100,
+    _rotationSpeed: 10,
     _attackRange: 200,
     _enemiesList: null,
     _targetingEnemy: null,
@@ -22,14 +22,14 @@ var Turret = cc.Sprite.extend({
             || cc.pDistance(this.getPosition(), this._targetingEnemy.getPosition()) > this._attackRange){
             this._findNewTarget()
         }
-        this._attack();
+        this._attack(dt);
 
         this._attackCountdown-=dt;
     },
 
     _findNewTarget: function(){
         for(var i in this._enemiesList){
-            if(cc.pDistance(this.getPosition(), this._enemiesList[i].getPosition()) <= this._attackRange){
+            if(this._enemiesList[i].getIsAlive() && cc.pDistance(this.getPosition(), this._enemiesList[i].getPosition()) <= this._attackRange){
                 this._targetingEnemy = this._enemiesList[i];
                 return;
             }
@@ -37,17 +37,20 @@ var Turret = cc.Sprite.extend({
         this._targetingEnemy = null;
     },
 
-    _attack: function(){
-        if(this._targetingEnemy && this._targetingEnemy.getIsAlive() && this._attackCountdown<=0){
-            /*var angle = cc.radiansToDegrees(cc.pToAngle(this._targetingEnemy.getPosition()));
+    _attack: function(dt){
+        if(this._targetingEnemy){
+            //rotate gun
+            var angle = cc.radiansToDegrees(cc.pToAngle( cc.pSub(this._targetingEnemy.getPosition(), this.getPosition()) ));
             var offset = 90;
-            var t = cc.radiansToDegrees(cc.pToAngle(this.getPosition()));
-            this.setRotation(offset - angle);*/
-            //firing at enemy
-            this._attackCountdown=this._attackRate;
-            var bullet = new Bullet(this._targetingEnemy);
-            bullet.setPosition(this.getPosition());
-            this.getParent().addChild(bullet);
+            //this.setRotation(offset - angle);
+            this.setRotation(this.getRotation() + ((offset-angle) - this.getRotation()) * this._rotationSpeed * dt);
+            if(this._targetingEnemy.getIsAlive() && this._attackCountdown<=0){
+                //firing at enemy
+                this._attackCountdown=this._attackRate;
+                var bullet = new Bullet(this._targetingEnemy);
+                bullet.setPosition(this.getPosition());
+                this.getParent().addChild(bullet);
+            }
         }
     }
 });

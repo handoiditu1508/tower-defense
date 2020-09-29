@@ -7,7 +7,7 @@ var Snail = AbstractEnemy.extend({
     die: function(){
         this._isAlive = false;
 
-        var effect = new FireExplosion();
+        var effect = new BlueStarDust();
         effect.setPosition(this.getPosition());
         this.getParent().getParent().addChild(effect);
 
