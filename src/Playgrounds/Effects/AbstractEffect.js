@@ -1,4 +1,4 @@
-var Effect = cc.Sprite.extend({
+var AbstractEffect = cc.Sprite.extend({
     _keyPrefix: null,
 
     ctor: function(plist, fileName, numberOfSprites, animationTime, repeat, keyPrefix){

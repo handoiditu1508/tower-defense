@@ -1,5 +1,5 @@
-var FireExplosion = Effect.extend({
+var FireExplosion = AbstractEffect.extend({
     ctor: function(){
-        Effect.prototype.ctor.call(this, res.fire_explosion_plist, res.fire_explosion_png, 24, 1, 1, "fire_explosion");
+        AbstractEffect.prototype.ctor.call(this, res.fire_explosion_plist, res.fire_explosion_png, 24, 1, 1, "fire_explosion");
     },
 })
