@@ -25,7 +25,7 @@ var Map2 = AbstractMap.extend({
             [
                 {
                     id: 1,
-                    numberOfEnemies: 5,
+                    numberOfEnemies: 1,
                 },
                 {
                     id: 0,

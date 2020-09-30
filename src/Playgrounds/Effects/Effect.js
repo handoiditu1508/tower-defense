@@ -1,46 +1,32 @@
 var Effect = cc.Sprite.extend({
-    spritesCount: null,
-    currentIndex: 0,
-    animationTime: null,
-    repeatTimesLeft: null,
-    timeBetweenSprites: null,
-    timeCount: 0,
+    _keyPrefix: null,
 
-    ctor: function(plist, fileName, spritesCount, animationTime, repeat){
+    ctor: function(plist, fileName, numberOfSprites, animationTime, repeat, keyPrefix){
         cc.spriteFrameCache.addSpriteFrames(plist, fileName);
 
-        this.spritesCount = spritesCount;
-        this.animationTime = animationTime;
-        this.timeBetweenSprites = this.animationTime/this.spritesCount;
+        cc.Sprite.prototype.ctor.call(this);
 
-        cc.Sprite.prototype.ctor.call(this, cc.spriteFrameCache.getSpriteFrame(this.currentIndex));
+        this._keyPrefix = keyPrefix;
 
-        if(!repeat || repeat == cc.REPEAT_FOREVER)
-            this.schedule(this.repeatForever);
-        else{
-            this.repeatTimesLeft = repeat;
-            this.schedule(this.repeat);
+        var timeBetweenSprites;
+
+        if(repeat == 1){
+            timeBetweenSprites = animationTime/(numberOfSprites-1);
         }
-    },
+        else timeBetweenSprites = animationTime/numberOfSprites;
 
-    repeatForever: function(dt){
-        this.timeCount += dt;
-        this.currentIndex += Math.floor(this.timeCount/this.timeBetweenSprites);
-        this.currentIndex %= this.spritesCount;
-        this.timeCount %= this.timeBetweenSprites;
-        this.setSpriteFrame(cc.spriteFrameCache.getSpriteFrame(this.currentIndex));
-    },
-
-    repeat: function(dt){
-        this.timeCount += dt;
-        this.currentIndex += Math.floor(this.timeCount/this.timeBetweenSprites);
-        this.repeatTimesLeft -= Math.floor(this.currentIndex/this.spritesCount);
-        this.currentIndex %= this.spritesCount;
-        this.timeCount %= this.timeBetweenSprites;
-        this.setSpriteFrame(cc.spriteFrameCache.getSpriteFrame(this.currentIndex));
-        if(this.repeatTimesLeft > 0){
-            this.setSpriteFrame(cc.spriteFrameCache.getSpriteFrame(this.currentIndex));
+        var animFrames = [];
+        for (var i = 0; i < numberOfSprites; i++) {
+            var frame = cc.spriteFrameCache.getSpriteFrame(this.getKey(i));
+            animFrames.push(frame);
         }
-        else this.removeFromParent();
+        var animation = new cc.Animation(animFrames, timeBetweenSprites, repeat);
+        var animate   = new cc.Animate(animation);
+        var del = cc.callFunc(this.removeFromParent.bind(this));
+        this.runAction(cc.sequence(animate, del));
     },
+
+    getKey: function(index){
+        return this._keyPrefix + index;
+    }
 })

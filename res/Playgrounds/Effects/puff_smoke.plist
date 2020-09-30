@@ -4,485 +4,485 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>0</key>
+            <key>puff_smoke0</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{64,64}}</string>
+                <string>{{1,117},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>1</key>
+            <key>puff_smoke1</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{64,0},{64,64}}</string>
+                <string>{{67,59},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>10</key>
+            <key>puff_smoke10</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{42,36}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{256,64},{64,64}}</string>
+                <string>{{289,165},{42,36}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>puff_smoke11</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,-1}</string>
+                <key>spriteSize</key>
+                <string>{46,38}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,64}</string>
+                <key>textureRect</key>
+                <string>{{1,285},{46,38}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>11</key>
+            <key>puff_smoke12</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{50,42}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{320,64},{64,64}}</string>
+                <string>{{245,271},{50,42}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>puff_smoke13</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-1}</string>
+                <key>spriteSize</key>
+                <string>{52,42}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,64}</string>
+                <key>textureRect</key>
+                <string>{{67,283},{52,42}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>12</key>
+            <key>puff_smoke14</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{54,44}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{0,128},{64,64}}</string>
+                <string>{{199,271},{54,44}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>puff_smoke15</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{1,0}</string>
+                <key>spriteSize</key>
+                <string>{56,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,64}</string>
+                <key>textureRect</key>
+                <string>{{265,117},{56,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>13</key>
+            <key>puff_smoke16</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{58,46}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{64,128},{64,64}}</string>
+                <string>{{263,209},{58,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>14</key>
+            <key>puff_smoke17</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{60,48}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{128,128},{64,64}}</string>
+                <string>{{265,1},{60,48}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>15</key>
+            <key>puff_smoke18</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{62,48}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{192,128},{64,64}}</string>
+                <string>{{133,277},{62,48}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>16</key>
+            <key>puff_smoke19</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{62,50}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{256,128},{64,64}}</string>
+                <string>{{199,167},{62,50}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>17</key>
+            <key>puff_smoke2</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{320,128},{64,64}}</string>
+                <string>{{133,1},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>18</key>
+            <key>puff_smoke20</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{1,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{62,50}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{0,192},{64,64}}</string>
+                <string>{{199,219},{62,50}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>19</key>
+            <key>puff_smoke21</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,52}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{64,192},{64,64}}</string>
+                <string>{{133,169},{64,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>2</key>
+            <key>puff_smoke22</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,52}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{128,0},{64,64}}</string>
+                <string>{{199,113},{64,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>20</key>
+            <key>puff_smoke23</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-1}</string>
+                <key>spriteSize</key>
+                <string>{64,52}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,64}</string>
+                <key>textureRect</key>
+                <string>{{265,51},{64,52}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>puff_smoke24</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{128,192},{64,64}}</string>
+                <string>{{1,173},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>21</key>
+            <key>puff_smoke25</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{192,192},{64,64}}</string>
+                <string>{{67,115},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>22</key>
+            <key>puff_smoke26</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{256,192},{64,64}}</string>
+                <string>{{133,57},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>23</key>
+            <key>puff_smoke27</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{320,192},{64,64}}</string>
+                <string>{{199,1},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>24</key>
+            <key>puff_smoke28</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{0,256},{64,64}}</string>
+                <string>{{1,229},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>25</key>
+            <key>puff_smoke29</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{64,256},{64,64}}</string>
+                <string>{{67,171},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>26</key>
+            <key>puff_smoke3</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{128,256},{64,64}}</string>
+                <string>{{133,113},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>27</key>
+            <key>puff_smoke30</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{192,256},{64,64}}</string>
+                <string>{{199,57},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>28</key>
+            <key>puff_smoke31</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,54}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{256,256},{64,64}}</string>
+                <string>{{67,227},{64,54}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>29</key>
+            <key>puff_smoke4</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,56}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{320,256},{64,64}}</string>
+                <string>{{1,1},{64,56}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>3</key>
+            <key>puff_smoke5</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,56}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{192,0},{64,64}}</string>
+                <string>{{1,59},{64,56}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>30</key>
+            <key>puff_smoke6</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,56}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{0,320},{64,64}}</string>
+                <string>{{67,1},{64,56}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>31</key>
+            <key>puff_smoke7</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,2}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{64,52}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{64,320},{64,64}}</string>
+                <string>{{133,223},{64,52}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>4</key>
+            <key>puff_smoke8</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{32,28}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{256,0},{64,64}}</string>
+                <string>{{289,297},{32,28}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>5</key>
+            <key>puff_smoke9</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,-1}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{38,32}</string>
                 <key>spriteSourceSize</key>
                 <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{320,0},{64,64}}</string>
+                <string>{{289,257},{38,32}}</string>
                 <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>6</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{64,64}</string>
-                <key>spriteSourceSize</key>
-                <string>{64,64}</string>
-                <key>textureRect</key>
-                <string>{{0,64},{64,64}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>7</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{64,64}</string>
-                <key>spriteSourceSize</key>
-                <string>{64,64}</string>
-                <key>textureRect</key>
-                <string>{{64,64},{64,64}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>8</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{64,64}</string>
-                <key>spriteSourceSize</key>
-                <string>{64,64}</string>
-                <key>textureRect</key>
-                <string>{{128,64},{64,64}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>9</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{64,64}</string>
-                <key>spriteSourceSize</key>
-                <string>{64,64}</string>
-                <key>textureRect</key>
-                <string>{{192,64},{64,64}}</string>
-                <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -494,13 +494,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>fire_explosion_2.png</string>
+            <string>puff_smoke.png</string>
             <key>size</key>
-            <string>{384,384}</string>
+            <string>{326,326}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:3e1278b285caf10bb7267c5bd3ef3c9c:ea7b24bc2fd2a6ee6a201a2c1485fbe8:47f841a16f2da65f77f639eaf5b0aa75$</string>
+            <string>$TexturePacker:SmartUpdate:066e48df7c19d46bf41af7c5812715a7:6486ba36f88d6923bcf967ebeb285513:c440a196c2396963d7715d087eba04c6$</string>
             <key>textureFileName</key>
-            <string>fire_explosion_2.png</string>
+            <string>puff_smoke.png</string>
         </dict>
     </dict>
 </plist>
