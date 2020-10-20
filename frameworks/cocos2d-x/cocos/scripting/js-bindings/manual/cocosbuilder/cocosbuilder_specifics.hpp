@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2012 Zynga Inc.
- * Copyright (c) 2013-2014 Chukong Technologies Inc.
+ * Copyright (c) 2013-2016 Chukong Technologies Inc.
+ * Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +25,12 @@
 #ifndef __JS_COCOSBUILDER_SPECIFICS_H__
 #define __JS_COCOSBUILDER_SPECIFICS_H__
 
-#include "../cocos2d_specifics.hpp"
+#include "scripting/js-bindings/manual/cocos2d_specifics.hpp"
 
 class JSCCBAnimationWrapper: public JSCallbackWrapper 
 {
 public:
     JSCCBAnimationWrapper() {}
-    virtual ~JSCCBAnimationWrapper() {}
     
     void animationCompleteCallback()
     {

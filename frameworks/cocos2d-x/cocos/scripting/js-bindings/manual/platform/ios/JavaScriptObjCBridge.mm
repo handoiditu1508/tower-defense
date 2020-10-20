@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2013-2014 Chukong Technologies Inc.
+ * Copyright (c) 2013-2016 Chukong Technologies Inc.
+ * Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,11 +23,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "JavaScriptObjCBridge.h"
-#include "spidermonkey_specifics.h"
-#include "ScriptingCore.h"
-#include "js_manual_conversions.h"
-#include "cocos2d.h"
+#import "scripting/js-bindings/manual/platform/ios/JavaScriptObjCBridge.h"
+#include "scripting/js-bindings/manual/spidermonkey_specifics.h"
+#include "scripting/js-bindings/manual/ScriptingCore.h"
+#include "scripting/js-bindings/manual/js_manual_conversions.h"
+
 JavaScriptObjCBridge::CallInfo::~CallInfo(void)
 {
     if (m_returnType == TypeString)
@@ -206,7 +207,7 @@ void JavaScriptObjCBridge::CallInfo::pushValue(void *val){
     else if ([oval isKindOfClass:[NSString class]])
     {
         const char *content = [oval cStringUsingEncoding:NSUTF8StringEncoding];
-        m_ret.stringValue = new string(content);
+        m_ret.stringValue = new (std::nothrow) string(content);
         m_returnType = TypeString;
     }
     else if ([oval isKindOfClass:[NSDictionary class]])
@@ -232,7 +233,7 @@ JS_BINDED_CLASS_GLUE_IMPL(JavaScriptObjCBridge);
  */
 JS_BINDED_CONSTRUCTOR_IMPL(JavaScriptObjCBridge)
 {
-    JavaScriptObjCBridge* jsj = new JavaScriptObjCBridge();
+    JavaScriptObjCBridge* jsj = new (std::nothrow) JavaScriptObjCBridge();
     
     js_proxy_t *p;
     jsval out;
@@ -261,6 +262,16 @@ JS_BINDED_CONSTRUCTOR_IMPL(JavaScriptObjCBridge)
 static void basic_object_finalize(JSFreeOp *freeOp, JSObject *obj)
 {
     CCLOG("basic_object_finalize %p ...", obj);
+    
+    js_proxy_t* nproxy;
+    js_proxy_t* jsproxy;
+    JSContext *cx = ScriptingCore::getInstance()->getGlobalContext();
+    JS::RootedObject jsobj(cx, obj);
+    jsproxy = jsb_get_js_proxy(jsobj);
+    if (jsproxy) {
+        nproxy = jsb_get_native_proxy(jsproxy->ptr);
+        jsb_remove_proxy(nproxy, jsproxy);
+    }
 }
 
 JS_BINDED_FUNC_IMPL(JavaScriptObjCBridge, callStaticMethod){

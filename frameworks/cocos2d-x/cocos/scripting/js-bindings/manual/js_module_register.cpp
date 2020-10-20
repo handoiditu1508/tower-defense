@@ -1,45 +1,70 @@
-#include "js_module_register.h"
+/****************************************************************************
+ Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
+ 
+ http://www.cocos2d-x.org
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ ****************************************************************************/
 
-#include "jsb_cocos2dx_auto.hpp"
-#include "jsb_cocos2dx_ui_auto.hpp"
-#include "jsb_cocos2dx_studio_auto.hpp"
-#include "jsb_cocos2dx_builder_auto.hpp"
-#include "jsb_cocos2dx_spine_auto.hpp"
-#include "jsb_cocos2dx_extension_auto.hpp"
-#include "jsb_cocos2dx_3d_auto.hpp"
-#include "jsb_cocos2dx_3d_extension_auto.hpp"
-#include "3d/jsb_cocos2dx_3d_manual.h"
-#include "ui/jsb_cocos2dx_ui_manual.h"
-#include "cocostudio/jsb_cocos2dx_studio_manual.h"
-#include "cocosbuilder/js_bindings_ccbreader.h"
-#include "spine/jsb_cocos2dx_spine_manual.h"
-#include "extension/jsb_cocos2dx_extension_manual.h"
-#include "localstorage/js_bindings_system_registration.h"
-#include "chipmunk/js_bindings_chipmunk_registration.h"
-#include "jsb_opengl_registration.h"
-#include "network/XMLHTTPRequest.h"
-#include "network/jsb_websocket.h"
-#include "network/jsb_socketio.h"
-#include "jsb_cocos2dx_physics3d_auto.hpp"
-#include "physics3d/jsb_cocos2dx_physics3d_manual.h"
-#include "jsb_cocos2dx_navmesh_auto.hpp"
-#include "navmesh/jsb_cocos2dx_navmesh_manual.h"
+#include "scripting/js-bindings/manual/js_module_register.h"
+
+#include "scripting/js-bindings/auto/jsb_cocos2dx_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_ui_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_studio_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_builder_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_spine_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_extension_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_network_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_3d_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_3d_extension_auto.hpp"
+#include "scripting/js-bindings/manual/3d/jsb_cocos2dx_3d_manual.h"
+#include "scripting/js-bindings/manual/ui/jsb_cocos2dx_ui_manual.h"
+#include "scripting/js-bindings/manual/cocostudio/jsb_cocos2dx_studio_manual.h"
+#include "scripting/js-bindings/manual/cocosbuilder/js_bindings_ccbreader.h"
+#include "scripting/js-bindings/manual/spine/jsb_cocos2dx_spine_manual.h"
+#include "scripting/js-bindings/manual/extension/jsb_cocos2dx_extension_manual.h"
+#include "scripting/js-bindings/manual/localstorage/js_bindings_system_registration.h"
+#include "scripting/js-bindings/manual/chipmunk/js_bindings_chipmunk_registration.h"
+#include "scripting/js-bindings/manual/jsb_opengl_registration.h"
+#include "scripting/js-bindings/manual/network/XMLHTTPRequest.h"
+#include "scripting/js-bindings/manual/network/jsb_websocket.h"
+#include "scripting/js-bindings/manual/network/jsb_socketio.h"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_physics3d_auto.hpp"
+#include "scripting/js-bindings/manual/physics3d/jsb_cocos2dx_physics3d_manual.h"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_navmesh_auto.hpp"
+#include "scripting/js-bindings/manual/navmesh/jsb_cocos2dx_navmesh_manual.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include "jsb_cocos2dx_experimental_video_auto.hpp"
-#include "experimental/jsb_cocos2dx_experimental_video_manual.h"
-#include "jsb_cocos2dx_experimental_webView_auto.hpp"
-#include "experimental/jsb_cocos2dx_experimental_webView_manual.h"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_experimental_video_auto.hpp"
+#include "scripting/js-bindings/manual/experimental/jsb_cocos2dx_experimental_video_manual.h"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_experimental_webView_auto.hpp"
+#include "scripting/js-bindings/manual/experimental/jsb_cocos2dx_experimental_webView_manual.h"
 #endif
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-#include "jsb_cocos2dx_audioengine_auto.hpp"
+#include "scripting/js-bindings/auto/jsb_cocos2dx_audioengine_auto.hpp"
 #endif
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include "platform/android/CCJavascriptJavaBridge.h"
+#include "scripting/js-bindings/manual/platform/android/CCJavascriptJavaBridge.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-#include "platform/ios/JavaScriptObjCBridge.h"
+#include "scripting/js-bindings/manual/platform/ios/JavaScriptObjCBridge.h"
 #endif
 
 USING_NS_CC;
@@ -63,7 +88,7 @@ int js_module_register()
     sc->addRegisterCallback(register_all_cocos2dx_builder);
     sc->addRegisterCallback(register_CCBuilderReader);
     
-    // ui can be commented out to reduce the package, attension studio need ui module
+    // ui can be commented out to reduce the package, attention studio need ui module
     sc->addRegisterCallback(register_all_cocos2dx_ui);
     sc->addRegisterCallback(register_all_cocos2dx_ui_manual);
     
@@ -79,8 +104,10 @@ int js_module_register()
     sc->addRegisterCallback(MinXmlHttpRequest::_js_register);
     // websocket can be commented out to reduce the package
     sc->addRegisterCallback(register_jsb_websocket);
-    // sokcet io can be commented out to reduce the package
+    // socket io can be commented out to reduce the package
     sc->addRegisterCallback(register_jsb_socketio);
+    // Downloader
+    sc->addRegisterCallback(register_all_cocos2dx_network);
 
     // 3d can be commented out to reduce the package
     sc->addRegisterCallback(register_all_cocos2dx_3d);
@@ -100,7 +127,7 @@ int js_module_register()
     sc->addRegisterCallback(register_all_cocos2dx_navmesh_manual);
 #endif
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS) && !defined(CC_TARGET_OS_TVOS)
     sc->addRegisterCallback(register_all_cocos2dx_experimental_video);
     sc->addRegisterCallback(register_all_cocos2dx_experimental_video_manual);
     sc->addRegisterCallback(register_all_cocos2dx_experimental_webView);

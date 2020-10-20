@@ -22,7 +22,9 @@ var AbstractEffect = cc.Sprite.extend({
         }
         var animation = new cc.Animation(animFrames, timeBetweenSprites, repeat);
         var animate   = new cc.Animate(animation);
-        var del = cc.callFunc(this.removeFromParent.bind(this));
+        var del = cc.callFunc(function(){
+            this.removeFromParent();
+        }.bind(this));
         this.runAction(cc.sequence(animate, del));
     },
 

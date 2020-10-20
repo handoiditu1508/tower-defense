@@ -1,6 +1,7 @@
 /*
  * Created by Huabin LING on 17/6/15.
- * Copyright (c) 2015 Chukong Technologies Inc.
+ * Copyright (c) 2015-2016 Chukong Technologies Inc.
+ * Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,10 +22,10 @@
  * THE SOFTWARE.
  */
 
-#include "jsb_cocos2dx_navmesh_conversions.h"
+#include "scripting/js-bindings/manual/navmesh/jsb_cocos2dx_navmesh_conversions.h"
 #if CC_USE_NAVMESH
-#include "cocos2d_specifics.hpp"
-#include "js_manual_conversions.h"
+#include "scripting/js-bindings/manual/cocos2d_specifics.hpp"
+#include "scripting/js-bindings/manual/js_manual_conversions.h"
 
 bool jsval_to_NavMeshAgentParam(JSContext *cx, JS::HandleValue v, cocos2d::NavMeshAgentParam* ret)
 {

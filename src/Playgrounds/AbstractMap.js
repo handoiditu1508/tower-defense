@@ -61,12 +61,12 @@ var AbstractMapLayer = cc.Layer.extend({
         cc.eventManager.addListener({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
 
-            onTouchBegan: function(touch, event){
+            /*onTouchBegan: function(touch, event){
                 if(cc.director.isPaused())
                     return;
 
                 this._onTouchBegan(touch, event);
-            }.bind(this),
+            }.bind(this),*/
 
             /*onTouchMoved: function (touch, event) {
                 if(cc.director.isPaused())
@@ -93,6 +93,13 @@ var AbstractMapLayer = cc.Layer.extend({
 
         cc.eventManager.addListener({
             event: cc.EventListener.MOUSE,
+
+            onMouseDown: function(event){
+                if(cc.director.isPaused())
+                    return;
+
+                this._onMouseDown(event);
+            }.bind(this),
 
             onMouseMove: function(event){
                 if(cc.director.isPaused())
@@ -349,6 +356,16 @@ var AbstractMapLayer = cc.Layer.extend({
         this._deleteTurretDragger();
     },*/
 
+    _onMouseDown: function (event) {
+        //drag turret on map
+        if(cc.rectContainsPoint(this._turretShop.getBoundingBox(), event.getLocation())){
+            this._turretDragger = new cc.Sprite(res.turret_png);
+            this._turretDragger.setPosition(event.getLocation());
+            this._turretDragger.setOpacity(127);
+            this.addChild(this._turretDragger);
+        }
+    },
+
     _onMouseMove: function(event){
         if(this._turretDragger){
             this._turretDragger.setPosition(event.getLocation());
@@ -359,7 +376,7 @@ var AbstractMapLayer = cc.Layer.extend({
         if(this._turretDragger){
             for(var i in this._turretPoints){
                 if(!this._turretPlaced[i] && cc.rectContainsPoint(this._turretDragger.getBoundingBox(), this._turretPoints[i])){
-                    var turret = new Turret(this._enemiesParentNode.getChildren());
+                    var turret = new Turret(this._enemiesParentNode);
                     turret.setPosition(this._turretPoints[i]);
                     this.addChild(turret);
                     this._turretPlaced[i] = true;

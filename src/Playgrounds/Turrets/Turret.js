@@ -1,16 +1,16 @@
 var Turret = cc.Sprite.extend({
-    _rotationSpeed: 10,
+    _rotationSpeed: 5,
     _attackRange: 200,
-    _enemiesList: null,
+    _enemiesParentNode: null,
     _targetingEnemy: null,
     _attackRate: 1,
     _attackCountdown: null,
 
-    ctor: function(enemiesList){
+    ctor: function(enemiesParentNode){
         cc.Sprite.prototype.ctor.call(this, res.turret_png);
         this.setAnchorPoint(this.anchorX, 0.35);
-
-        this._enemiesList = enemiesList;
+        
+        this._enemiesParentNode = enemiesParentNode;
         this._attackCountdown = this._attackRate;
 
         this.scheduleUpdate();
@@ -28,11 +28,13 @@ var Turret = cc.Sprite.extend({
     },
 
     _findNewTarget: function(){
-        for(var i in this._enemiesList){
-            if(this._enemiesList[i].getIsAlive() && cc.pDistance(this.getPosition(), this._enemiesList[i].getPosition()) <= this._attackRange){
-                this._targetingEnemy = this._enemiesList[i];
+        for(var i in this._enemiesParentNode.getChildren()){
+            this._enemiesParentNode.getChildren()[i].retain();
+            if(this._enemiesParentNode.getChildren()[i].getIsAlive() && cc.pDistance(this.getPosition(), this._enemiesParentNode.getChildren()[i].getPosition()) <= this._attackRange){
+                this._targetingEnemy = this._enemiesParentNode.getChildren()[i];
                 return;
             }
+            this._enemiesParentNode.getChildren()[i].release();
         }
         this._targetingEnemy = null;
     },
@@ -41,6 +43,12 @@ var Turret = cc.Sprite.extend({
         if(this._targetingEnemy){
             //rotate gun
             var angle = cc.radiansToDegrees(cc.pToAngle( cc.pSub(this._targetingEnemy.getPosition(), this.getPosition()) ));
+            /*if(angle < 0)
+                angle = (360 + angle)%360;*/
+            //var t = (360 + angle)%360;
+            //if(Math.abs(t-this.getRotation()) < Math.abs(angle-this.getRotation()))
+                //angle = t;
+            //cc.log(angle);
             var offset = 90;
             //this.setRotation(offset - angle);
             this.setRotation(this.getRotation() + ((offset-angle) - this.getRotation()) * this._rotationSpeed * dt);

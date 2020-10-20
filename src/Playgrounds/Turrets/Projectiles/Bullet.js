@@ -17,6 +17,8 @@ var Bullet = cc.Sprite.extend({
         var distance = cc.pDistance(this._targetEnemy.getPosition(), this.getPosition())
         if(distance <= this._minimumDistance){
             this._damageEnemy();
+            this.removeFromParent();
+            return;
         }
         var direction = cc.pSub(this._targetEnemy.getPosition(), this.getPosition());
         direction = cc.pNormalize(direction);
@@ -25,9 +27,8 @@ var Bullet = cc.Sprite.extend({
     },
 
     _damageEnemy: function(){
-        if(this._targetEnemy.getParent() != null){
+        if(this._targetEnemy.getIsAlive() && this._targetEnemy.getParent() != null){
             this._targetEnemy.takeDamage(this._damage);
         }
-        this.removeFromParent();
     }
 })

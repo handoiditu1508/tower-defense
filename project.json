@@ -22,7 +22,7 @@
         "src/Playgrounds/AbstractMap.js",
         "src/Playgrounds/Map1.js",
         "src/Playgrounds/Map2.js",
-        "src/Playgrounds/Effects/Effect.js",
+        "src/Playgrounds/Effects/AbstractEffect.js",
         "src/Playgrounds/Effects/BulletHit.js",
         "src/Playgrounds/Effects/FireExplosion.js",
         "src/Playgrounds/Effects/PuffSmoke.js",

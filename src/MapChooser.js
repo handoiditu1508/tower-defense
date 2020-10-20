@@ -12,7 +12,7 @@ var MapChooserLayer = cc.Layer.extend({
     ctor:function () {
         cc.Layer.prototype.ctor.call(this);
 
-        var gradient = new cc.LayerGradient(cc.color(0, 0, 0, 255), cc.color(255, 0, 0, 255));
+        var gradient = new cc.LayerGradient(cc.color(0, 0, 0, 255), cc.color(0, 0, 255, 255));
         this.addChild(gradient);
 
         var map1MenuItem = new cc.MenuItemImage(res.map1_mini_png, res.map1_png, function(){cc.director.runScene(new Map1());}, this);

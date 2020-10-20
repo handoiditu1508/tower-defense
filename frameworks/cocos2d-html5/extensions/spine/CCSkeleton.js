@@ -31,33 +31,7 @@
  */
 var sp = sp || {};
 
-/**
- * The vertex index of spine.
- * @constant
- * @type {{X1: number, Y1: number, X2: number, Y2: number, X3: number, Y3: number, X4: number, Y4: number}}
- */
-sp.VERTEX_INDEX = {
-    X1: 0,
-    Y1: 1,
-    X2: 2,
-    Y2: 3,
-    X3: 4,
-    Y3: 5,
-    X4: 6,
-    Y4: 7
-};
-
-/**
- * The attachment type of spine.  It contains three type: REGION(0), BOUNDING_BOX(1), MESH(2) and SKINNED_MESH.
- * @constant
- * @type {{REGION: number, BOUNDING_BOX: number, REGION_SEQUENCE: number, MESH: number}}
- */
-sp.ATTACHMENT_TYPE = {
-    REGION: 0,
-    BOUNDING_BOX: 1,
-    MESH: 2,
-    SKINNED_MESH:3
-};
+var spine = sp.spine;
 
 /**
  * <p>
@@ -78,7 +52,6 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
     _premultipliedAlpha: false,
     _ownsSkeletonData: null,
     _atlas: null,
-    _blendFunc: null,
 
     /**
      * The constructor of sp.Skeleton. override it to extend the construction behavior, remember to call "this._super()" in the extended "ctor" function.
@@ -105,8 +78,16 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
     init: function () {
         cc.Node.prototype.init.call(this);
         this._premultipliedAlpha = (cc._renderType === cc.game.RENDER_TYPE_WEBGL && cc.OPTIMIZE_BLEND_FUNC_FOR_PREMULTIPLIED_ALPHA);
-        this._blendFunc = {src: cc.BLEND_SRC, dst: cc.BLEND_DST};
+    },
+
+    onEnter: function () {
+        cc.Node.prototype.onEnter.call(this);
         this.scheduleUpdate();
+    },
+
+    onExit: function () {
+        this.unscheduleUpdate();
+        cc.Node.prototype.onExit.call(this);
     },
 
     /**
@@ -171,7 +152,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
 
     /**
      * Initializes sp.Skeleton with Data.
-     * @param {spine.SkeletonData|String} skeletonDataFile
+     * @param {sp.spine.SkeletonData|String} skeletonDataFile
      * @param {String|spine.Atlas|spine.SkeletonData} atlasFile atlas filename or atlas data or owns SkeletonData
      * @param {Number} [scale] scale can be specified on the JSON or binary loader which will scale the bone positions, image sizes, and animation translations.
      */
@@ -183,7 +164,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
             if (cc.isString(argAtlasFile)) {
                 var data = cc.loader.getRes(argAtlasFile);
                 sp._atlasLoader.setAtlasFile(argAtlasFile);
-                atlas = new spine.Atlas(data, sp._atlasLoader);
+                atlas = new spine.TextureAtlas(data, sp._atlasLoader.load.bind(sp._atlasLoader));
             } else {
                 atlas = atlasFile;
             }
@@ -211,36 +192,23 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
      */
     getBoundingBox: function () {
         var minX = cc.FLT_MAX, minY = cc.FLT_MAX, maxX = cc.FLT_MIN, maxY = cc.FLT_MIN;
-        var scaleX = this.getScaleX(), scaleY = this.getScaleY(), vertices = [],
-            slots = this._skeleton.slots, VERTEX = sp.VERTEX_INDEX;
+        var scaleX = this.getScaleX(), scaleY = this.getScaleY(), vertices,
+            slots = this._skeleton.slots, VERTEX = spine.RegionAttachment;
 
         for (var i = 0, slotCount = slots.length; i < slotCount; ++i) {
             var slot = slots[i];
-            if (!slot.attachment || slot.attachment.type != sp.ATTACHMENT_TYPE.REGION)
-                continue;
             var attachment = slot.attachment;
-            this._computeRegionAttachmentWorldVertices(attachment, slot.bone.skeleton.x, slot.bone.skeleton.y, slot.bone, vertices);
-            minX = Math.min(minX, vertices[VERTEX.X1] * scaleX, vertices[VERTEX.X4] * scaleX, vertices[VERTEX.X2] * scaleX, vertices[VERTEX.X3] * scaleX);
-            minY = Math.min(minY, vertices[VERTEX.Y1] * scaleY, vertices[VERTEX.Y4] * scaleY, vertices[VERTEX.Y2] * scaleY, vertices[VERTEX.Y3] * scaleY);
-            maxX = Math.max(maxX, vertices[VERTEX.X1] * scaleX, vertices[VERTEX.X4] * scaleX, vertices[VERTEX.X2] * scaleX, vertices[VERTEX.X3] * scaleX);
-            maxY = Math.max(maxY, vertices[VERTEX.Y1] * scaleY, vertices[VERTEX.Y4] * scaleY, vertices[VERTEX.Y2] * scaleY, vertices[VERTEX.Y3] * scaleY);
+            if (!attachment || !(attachment instanceof spine.RegionAttachment))
+                continue;
+            vertices = spine.Utils.setArraySize(new Array(), 8, 0);
+            attachment.computeWorldVertices(slot.bone, vertices, 0, 2);
+            minX = Math.min(minX, vertices[VERTEX.OX1] * scaleX, vertices[VERTEX.OX4] * scaleX, vertices[VERTEX.OX2] * scaleX, vertices[VERTEX.OX3] * scaleX);
+            minY = Math.min(minY, vertices[VERTEX.OY1] * scaleY, vertices[VERTEX.OY4] * scaleY, vertices[VERTEX.OY2] * scaleY, vertices[VERTEX.OY3] * scaleY);
+            maxX = Math.max(maxX, vertices[VERTEX.OX1] * scaleX, vertices[VERTEX.OX4] * scaleX, vertices[VERTEX.OX2] * scaleX, vertices[VERTEX.OX3] * scaleX);
+            maxY = Math.max(maxY, vertices[VERTEX.OY1] * scaleY, vertices[VERTEX.OY4] * scaleY, vertices[VERTEX.OY2] * scaleY, vertices[VERTEX.OY3] * scaleY);
         }
         var position = this.getPosition();
         return cc.rect(position.x + minX, position.y + minY, maxX - minX, maxY - minY);
-    },
-
-    _computeRegionAttachmentWorldVertices : function(self, x, y, bone, vertices){
-        var offset = self.offset, vertexIndex = sp.VERTEX_INDEX;
-        x += bone.worldX;
-        y += bone.worldY;
-        vertices[vertexIndex.X1] = offset[vertexIndex.X1] * bone.m00 + offset[vertexIndex.Y1] * bone.m01 + x;
-        vertices[vertexIndex.Y1] = offset[vertexIndex.X1] * bone.m10 + offset[vertexIndex.Y1] * bone.m11 + y;
-        vertices[vertexIndex.X2] = offset[vertexIndex.X2] * bone.m00 + offset[vertexIndex.Y2] * bone.m01 + x;
-        vertices[vertexIndex.Y2] = offset[vertexIndex.X2] * bone.m10 + offset[vertexIndex.Y2] * bone.m11 + y;
-        vertices[vertexIndex.X3] = offset[vertexIndex.X3] * bone.m00 + offset[vertexIndex.Y3] * bone.m01 + x;
-        vertices[vertexIndex.Y3] = offset[vertexIndex.X3] * bone.m10 + offset[vertexIndex.Y3] * bone.m11 + y;
-        vertices[vertexIndex.X4] = offset[vertexIndex.X4] * bone.m00 + offset[vertexIndex.Y4] * bone.m01 + x;
-        vertices[vertexIndex.Y4] = offset[vertexIndex.X4] * bone.m10 + offset[vertexIndex.Y4] * bone.m11 + y;
     },
 
     /**
@@ -274,7 +242,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
     /**
      * Finds a bone by name. This does a string comparison for every bone.
      * @param {String} boneName
-     * @returns {spine.Bone}
+     * @returns {sp.spine.Bone}
      */
     findBone: function (boneName) {
         return this._skeleton.findBone(boneName);
@@ -283,7 +251,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
     /**
      * Finds a slot by name. This does a string comparison for every slot.
      * @param {String} slotName
-     * @returns {spine.Slot}
+     * @returns {sp.spine.Slot}
      */
     findSlot: function (slotName) {
         return this._skeleton.findSlot(slotName);
@@ -292,7 +260,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
     /**
      * Finds a skin by name and makes it the active skin. This does a string comparison for every skin. Note that setting the skin does not change which attachments are visible.
      * @param {string} skinName
-     * @returns {spine.Skin}
+     * @returns {sp.spine.Skin}
      */
     setSkin: function (skinName) {
         return this._skeleton.setSkinByName(skinName);
@@ -302,10 +270,10 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
      * Returns the attachment for the slot and attachment name. The skeleton looks first in its skin, then in the skeleton data’s default skin.
      * @param {String} slotName
      * @param {String} attachmentName
-     * @returns {spine.RegionAttachment|spine.BoundingBoxAttachment}
+     * @returns {sp.spine.Attachment}
      */
     getAttachment: function (slotName, attachmentName) {
-        return this._skeleton.getAttachmentBySlotName(slotName, attachmentName);
+        return this._skeleton.getAttachmentByName(slotName, attachmentName);
     },
 
     /**
@@ -335,8 +303,8 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
 
     /**
      * Sets skeleton data to sp.Skeleton.
-     * @param {spine.SkeletonData} skeletonData
-     * @param {spine.SkeletonData} ownsSkeletonData
+     * @param {sp.spine.SkeletonData} skeletonData
+     * @param {sp.spine.SkeletonData} ownsSkeletonData
      */
     setSkeletonData: function (skeletonData, ownsSkeletonData) {
         if(skeletonData.width != null && skeletonData.height != null)
@@ -352,11 +320,11 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
 
     /**
      * Return the renderer of attachment.
-     * @param {spine.RegionAttachment|spine.BoundingBoxAttachment} regionAttachment
-     * @returns {cc.Node}
+     * @param {sp.spine.RegionAttachment|sp.spine.BoundingBoxAttachment} regionAttachment
+     * @returns {sp.spine.TextureAtlasRegion}
      */
     getTextureAtlas: function (regionAttachment) {
-        return regionAttachment.rendererObject.page.rendererObject;
+        return regionAttachment.region;
     },
 
     /**
@@ -364,23 +332,23 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
      * @returns {cc.BlendFunc}
      */
     getBlendFunc: function () {
-        return this._blendFunc;
+        var slot = this._skeleton.drawOrder[0];
+        if (slot) {
+            var blend = this._renderCmd._getBlendFunc(slot.data.blendMode, this._premultipliedAlpha);
+            return blend;
+        }
+        else {
+            return {};
+        }
     },
 
     /**
-     * Sets the blendFunc of sp.Skeleton.
+     * Sets the blendFunc of sp.Skeleton, it won't have any effect for skeleton, skeleton is using slot's data to determine the blend function.
      * @param {cc.BlendFunc|Number} src
      * @param {Number} [dst]
      */
     setBlendFunc: function (src, dst) {
-        var locBlendFunc = this._blendFunc;
-        if (dst === undefined) {
-            locBlendFunc.src = src.src;
-            locBlendFunc.dst = src.dst;
-        } else {
-            locBlendFunc.src = src;
-            locBlendFunc.dst = dst;
-        }
+        return;
     },
 
     /**
@@ -390,6 +358,14 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
     update: function (dt) {
         this._skeleton.update(dt);
     }
+});
+
+cc.defineGetterSetter(sp.Skeleton.prototype, "opacityModifyRGB", sp.Skeleton.prototype.isOpacityModifyRGB);
+
+// For renderer webgl to identify skeleton's default texture and blend function
+cc.defineGetterSetter(sp.Skeleton.prototype, "_blendFunc", sp.Skeleton.prototype.getBlendFunc);
+cc.defineGetterSetter(sp.Skeleton.prototype, '_texture', function () {
+    return this._renderCmd._currTexture;
 });
 
 /**

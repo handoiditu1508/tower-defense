@@ -1,11 +1,11 @@
 var Snail = AbstractEnemy.extend({
 
     ctor: function(wayPoints){
-        AbstractEnemy.prototype.ctor.call(this, res.enemy_png, wayPoints);
+        AbstractEnemy.prototype.ctor.call(this, res.snail_png, wayPoints);
     },
 
     die: function(){
-        this._isAlive = false;
+        this.setIsAlive(false);
 
         var effect = new BlueStarDust();
         effect.setPosition(this.getPosition());

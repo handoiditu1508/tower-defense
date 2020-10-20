@@ -3,7 +3,7 @@ var AbstractEnemy = cc.Sprite.extend({
     _wayPoints: null,
     _destinationIndex: 1,
     _minimumDistance: 10,
-    _health: 2,
+    health: 2,
     _isAlive: true,
     _value: 1,
 
@@ -25,6 +25,7 @@ var AbstractEnemy = cc.Sprite.extend({
                     if(Global.lives < 0)
                         Global.lives = 0;
                     this.removeFromParent();
+                    return;
                 }
                 else this._destinationIndex++;
             }
@@ -43,8 +44,8 @@ var AbstractEnemy = cc.Sprite.extend({
 
     takeDamage: function(damage){
         if(this._isAlive){
-            this._health -= damage;
-            if(this._health <= 0){
+            this.health -= damage;
+            if(this.health <= 0){
                 this.die();
                 Global.score += this._value;
             }

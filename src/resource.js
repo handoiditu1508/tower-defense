@@ -5,7 +5,7 @@ var res = {
     map1_mini_png: "res/Playgrounds/map1_mini.png",
     map2_png: "res/Playgrounds/map2.png",
     map2_mini_png: "res/Playgrounds/map2_mini.png",
-    enemy_png: "res/Playgrounds/Enemies/enemy.png",
+    snail_png: "res/Playgrounds/Enemies/snail.png",
     the_boy_png: "res/Playgrounds/Enemies/the_boy.png",
     the_boy_plist: "res/Playgrounds/Enemies/the_boy.plist",
     fire_explosion_png: "res/Playgrounds/Effects/fire_explosion.png",

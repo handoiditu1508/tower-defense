@@ -37,7 +37,9 @@ var AbstractVividEnemy = AbstractEnemy.extend({
         }
         var animation = new cc.Animation(animFrames, this._timeBetweenSprites);
         var animate   = new cc.Animate(animation);
-        var del = cc.callFunc(this.removeFromParent.bind(this));
+        var del = cc.callFunc(function(){
+            this.removeFromParent();
+        }.bind(this));
         this.runAction(cc.sequence(animate, del));
     },
 
